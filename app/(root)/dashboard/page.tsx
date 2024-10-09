@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import { getSavingsPrediction } from '/Users/yaseenshaikh/Desktop/saas/saas/banking-main/lib/actions/savings.actions.ts';
 
