@@ -13,15 +13,18 @@
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
+/* Hide scrollbar for IE, Edge, and Firefox */
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
 .glassmorphism {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  border-radius: 15px; /* Added for more modern styling */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -46,6 +49,14 @@
 @layer utilities {
   .input-class {
     @apply text-16 placeholder:text-16 rounded-lg border border-gray-300 text-gray-900 placeholder:text-gray-500;
+    padding: 12px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .input-class:focus {
+    border-color: #3b82f6; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); /* Soft blue glow */
+    outline: none;
   }
 
   .sheet-content button {
@@ -141,10 +152,6 @@
     @apply text-14 rounded-lg border border-gray-300 px-4 py-2.5 font-semibold text-gray-700;
   }
 
-  .recent-transactions {
-    @apply flex w-full flex-col gap-6;
-  }
-
   .recent-transactions-label {
     @apply text-20 md:text-24 font-semibold text-gray-900;
   }
@@ -191,7 +198,7 @@
     @apply flex h-screen max-h-screen w-full flex-col gap-8 bg-gray-25 p-8 xl:py-12;
   }
 
-  /* My Banks */
+  /* Transactions */
   .transactions {
     @apply flex max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-gray-25 p-8 xl:py-12;
   }
@@ -374,5 +381,32 @@
 
   .sidebar-label {
     @apply text-16 font-semibold text-black-2 max-xl:hidden;
+  }
+
+  /* Smart Savings Styles */
+  .savings-goals {
+    background-color: #f0f4f8;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;
+  }
+
+  .savings-goals h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .savings-goals h3 {
+    font-size: 20px;
+    color: #007bff;
+  }
+
+  .savings-goals p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
   }
 }

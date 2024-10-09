@@ -48,7 +48,24 @@ const Sidebar = ({ user }: SiderbarProps) => {
             </Link>
           )
         })}
-        
+
+        {/* Add the Smart Savings Goals link below */}
+        <Link href="/smart-savings" className={cn('sidebar-link', { 'bg-bank-gradient': pathname === '/smart-savings' })}>
+          <div className="relative size-6">
+            <Image 
+              src="icons/smart-savings-goals.svg"  // Add an appropriate icon for Smart Savings Goals in your public/icons folder
+              alt="Smart Savings"
+              fill
+              className={cn({
+                'brightness-[3] invert-0': pathname === '/smart-savings'
+              })}
+            />
+          </div>
+          <p className={cn("sidebar-label", { "!text-white": pathname === '/smart-savings' })}>
+            Smart Savings Goals
+          </p>
+        </Link>
+
         <PlaidLink user={user} />
       </nav>
 
