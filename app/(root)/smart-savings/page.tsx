@@ -37,8 +37,7 @@ const SmartSavingsPage = () => {
         const predictedGoal = await predictSavingsGoal(transactions);
         setSavingsGoal(predictedGoal); // Only set once based on prediction
         // Calculate initial progress based on the predicted goal and default custom goal
-        const savedAmount = predictedGoal * 0.4; // Assume 40% already saved for illustration
-        setProgress(Math.min((savedAmount / customGoal) * 100, 100)); // Initial progress calculation
+        setProgress(Math.min((predictedGoal / customGoal) * 100, 100)); // Initial progress calculation
       }
     };
     fetchSavingsGoal();
@@ -50,8 +49,7 @@ const SmartSavingsPage = () => {
     if (!isNaN(newGoal) && newGoal > 0) {
       setCustomGoal(newGoal);
       // Recalculate the progress bar based on the custom goal
-      const savedAmount = savingsGoal * 0.4; // Assuming 40% already saved
-      setProgress(Math.min((savedAmount / newGoal) * 100, 100));
+      setProgress(Math.min((savingsGoal / newGoal) * 100, 100)); // Use the new custom goal for progress
     }
   };
 
